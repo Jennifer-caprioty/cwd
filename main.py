@@ -17,7 +17,7 @@ async def translate(ctx, *, inptext = None):
 
 @client.event
 async def on_ready():
-  await client.change_presence(status=discord.Status.idle, activity=discord.Game('with You'))
+  await client.change_presence(status=discord.Status.idle, activity=discord.Game('with Toms Nana'))
 
 
 @client.event
