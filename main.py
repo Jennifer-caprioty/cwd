@@ -3,7 +3,7 @@ import os
 from discord.ext import commands
 from googletrans import Translator
 
-client=commands.Bot(command_prefix=['pls ', 'Pls ', 'p', 'a'])
+client=commands.Bot(command_prefix=['pls ', 'Pls ', 'p', 'P'])
 
 deleted_messages = {}
 
