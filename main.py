@@ -56,6 +56,6 @@ async def snipe(ctx):
     else:
         embed=discord.Embed(title="Sniper",description="Nothing to snipe!")
     await ctx.send(embed = embed)
-   
+    
 
 client.run(os.getenv('TOKEN'))
