@@ -2,48 +2,10 @@ import discord
 import os
 from discord.ext import commands
 from googletrans import Translator
-import giphy_client
-from giphy_client.rest import ApiException
-import random
 
 client=commands.Bot(command_prefix=['pls ', 'Pls ', 'p', 'P'])
 
 deleted_messages = {}
-
-@client.command()
-async def hmm(ctx, *, member: discord.Member):
-  author_name = ctx.message.author.name
-  embed = discord.Embed(color = discord.Colour.red())
-
-  random_link = random.choice(images)
-
-  embed.set_image(url = random_link)
-  await ctx.send (f'{author_name} has killed {member.mention}')
-  await ctx.send(embed = embed)
-
-@client.command()
-async def hug(ctx,*, member: discord.Member, q="hug"):
-
-    api_key="0XFxHlEGR4hUO7RxdHslVuqqmWf5kcRm"
-    api_instance = giphy_client.DefaultApi()
-
-    author_name = ctx.message.author.name
-
-    try: 
-    # Search Endpoint
-        
-        api_response = api_instance.gifs_search_get(api_key, q, limit=50, rating='r')
-        lst = list(api_response.data)
-        giff = random.choice(lst)
-
-        emb = discord.Embed(title=q)
-        emb.set_image(url = f'https://media.giphy.com/media/{giff.id}/giphy.gif')
-
-        await ctx.send (f'{author_name} has hugged {member.mention}')
-        await ctx.channel.send(embed=emb)
-    except ApiException as e:
-        print("Exception when calling DefaultApi->gifs_search_get: %s\n" % e)
-
 
 @client.command(aliases=['ts'])
 async def translate(ctx, *, inptext = None):
