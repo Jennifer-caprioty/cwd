@@ -2,9 +2,6 @@ import discord
 import os
 from discord.ext import commands
 from googletrans import Translator
-import giphy_client
-from giphy_client.rest import ApiException
-import random
 
 client=commands.Bot(command_prefix=['pls ', 'Pls ', 'p', 'P'])
 
