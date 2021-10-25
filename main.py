@@ -23,7 +23,7 @@ async def on_ready():
   await client.change_presence(status=discord.Status.idle, activity=discord.Game('with Toms Nana'))
 
 @client.command()
-@commands.has_any_role('Vice Leader')
+@commands.has_any_role('Spectrum members')
 async def poll(ctx, *, question=None):
     if question == None:
         await ctx.send("Please write a poll!")
