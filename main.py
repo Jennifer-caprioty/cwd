@@ -11,6 +11,13 @@ client.remove_command("help")
 
 deleted_messages = {}
 
+@client.command()
+@commands.has_any_role('Vice Leader')
+async def ping(ctx,*, member: discord.Member):
+  author_name = ctx.message.author.name
+  await ctx.send (f'{author_name} pinged {member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}')
+
+
 @client.group(invoke_without_command=True)
 async def help(ctx):
   em = discord.Embed(title = "Help", description = "Use Pls help <command> for more info on a command ")
