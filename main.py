@@ -22,7 +22,7 @@ async def help(ctx):
 
   await ctx.send(embed = em)
 
-@help.command(aliases=['Snipe, s, S'])
+@help.command(aliases=['Snipe', 's', 'S'])
 async def snipe(ctx):
 
   em = discord.Embed(title = "Snipe", description = "Snipes the last deleted message in channel", color = ctx.author.color)
@@ -30,7 +30,7 @@ async def snipe(ctx):
 
   await ctx.send(embed = em)
 
-@help.command(aliases=['Translate, ts, Ts'])
+@help.command(aliases=['Translate', 'ts', 'Ts'])
 async def translate(ctx):
 
   em = discord.Embed(title = "translate", description = "Translate any text in english", color = ctx.author.color)
@@ -54,7 +54,7 @@ async def pollop(ctx):
 
   await ctx.send(embed = em)
 
-@help.command(aliases=['Fun, hug, kick, lick, slap, punch, stare, kiss, highfive, bye'])
+@help.command(aliases=['Fun', 'hug', 'kick', 'lick', 'slap', 'punch', 'stare', 'kiss', 'highfive', 'bye'])
 async def fun(ctx):
 
   em = discord.Embed(title = "Fun", description = "It's just as the title says", color = ctx.author.color)
