@@ -25,6 +25,7 @@ stabby = [
 ]
 
 @client.command()
+@commands.has_any_role('Queen of Hearts')
 async def stab(ctx,*, member: discord.Member):
   author_name = ctx.message.author.name
   
