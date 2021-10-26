@@ -42,6 +42,30 @@ async def poll(ctx, *, question=None):
  
     await poll_msg.add_reaction("✅")
     await poll_msg.add_reaction("❌")
+
+
+@client.command()
+@commands.has_any_role('Spectrum members')
+async def pollop(ctx, *, question=None):
+    if question == None:
+        await ctx.send("Please write a poll!")
+ 
+    icon_url = ctx.author.avatar_url 
+ 
+    pollEmbed = discord.Embed(title = "Poll", description = f"{question}")
+ 
+    pollEmbed.set_footer(text = f"Poll given by {ctx.author}", icon_url = ctx.author.avatar_url)
+ 
+    pollEmbed.timestamp = ctx.message.created_at 
+ 
+    await ctx.message.delete()
+ 
+    poll_msg = await ctx.send(embed = pollEmbed)
+ 
+    await poll_msg.add_reaction("1️⃣")
+    await poll_msg.add_reaction("2️⃣")
+    await poll_msg.add_reaction("3️⃣")
+    await poll_msg.add_reaction("4️⃣")
     
 @client.command()
 async def hug(ctx,*, member: discord.Member, q="hug"):
