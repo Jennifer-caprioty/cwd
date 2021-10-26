@@ -11,6 +11,31 @@ client.remove_command("help")
 
 deleted_messages = {}
 
+stabby = [
+  'https://i.imgur.com/kRuLOci.gif',
+  'https://i.imgur.com/lVC7TRf.gif',
+  'https://i.imgur.com/Pz9RKoE.gif',
+  'https://i.imgur.com/C5pQjXV.gif',
+  'https://i.imgur.com/YZwaY6R.gif',
+  'https://i.imgur.com/e14wXXz.gif',
+  'https://i.imgur.com/3EK5GoA.gif',
+  'https://i.imgur.com/Q7bCnWD.gif',
+  'https://i.imgur.com/VKvweoX.gif',
+  'https://i.imgur.com/5cEn3Ac.gif'
+]
+
+@client.command()
+async def stab(ctx,*, member: discord.Member):
+  author_name = ctx.message.author.name
+  
+  embed = discord.Embed(color = discord.Colour.red())
+
+  random_link = random.choice(stabby)
+
+  embed.set_image(url = random_link)
+  await ctx.send (f'{author_name} stabbed {member.mention} ')
+  await ctx.send(embed = embed)
+
 @client.command()
 @commands.has_any_role('Vice Leader')
 async def ping(ctx,*, member: discord.Member):
