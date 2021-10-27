@@ -28,8 +28,8 @@ skinningimg = [
   'https://i.imgur.com/MRSyQCb.gif',
   'https://i.imgur.com/1IdsgrN.gif',
   'https://i.imgur.com/CTcQk5Z.gif',
-  'https://i.imgur.com/KaVknjp.mp4',
-  'https://i.imgur.com/Z7Lkjvo.mp4'
+  'https://media.tenor.com/images/a9cfd5bda83284363a146713fd78b07d/tenor.gif',
+  'https://media.tenor.com/images/ab7b184c4bd43df45e1ffc2ffd5be2bd/tenor.gif'
 ]
 
 @client.command()
