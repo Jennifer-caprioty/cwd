@@ -24,6 +24,14 @@ stabby = [
   'https://i.imgur.com/5cEn3Ac.gif'
 ]
 
+skinningimg = [
+  'https://i.imgur.com/MRSyQCb.gif',
+  'https://i.imgur.com/1IdsgrN.gif',
+  'https://i.imgur.com/CTcQk5Z.gif',
+  'https://i.imgur.com/KaVknjp.mp4',
+  'https://i.imgur.com/Z7Lkjvo.mp4'
+]
+
 @client.command()
 @commands.has_any_role('Queen of Hearts')
 async def stab(ctx,*, member: discord.Member):
@@ -37,6 +45,20 @@ async def stab(ctx,*, member: discord.Member):
   await ctx.send (f'{author_name} stabbed {member.mention} ')
   await ctx.send(embed = embed)
 
+@client.command()
+@commands.has_any_role('Queen of Hearts')
+async def skin(ctx,*, member: discord.Member):
+  author_name = ctx.message.author.name
+  
+  embed = discord.Embed(color = discord.Colour.red())
+
+  random_link = random.choice(skinningimg)
+
+  embed.set_image(url = random_link)
+  await ctx.send (f'{author_name} is skinning {member.mention} ')
+  await ctx.send(embed = embed)
+
+  
 @client.command()
 @commands.has_any_role('Vice Leader')
 async def ping(ctx,*, member: discord.Member):
