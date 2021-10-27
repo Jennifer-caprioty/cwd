@@ -28,6 +28,8 @@ skinningimg = [
   'https://i.imgur.com/MRSyQCb.gif',
   'https://i.imgur.com/1IdsgrN.gif',
   'https://i.imgur.com/CTcQk5Z.gif',
+  'https://media.tenor.com/images/286b710f95472348d8ab72722e10254f/tenor.gif',
+  'https://media.tenor.com/images/cd95cad8b8576b8f7b74e7d412370d57/tenor.gif',
   'https://media.tenor.com/images/a9cfd5bda83284363a146713fd78b07d/tenor.gif',
   'https://media.tenor.com/images/ab7b184c4bd43df45e1ffc2ffd5be2bd/tenor.gif'
 ]
