@@ -35,7 +35,7 @@ skinningimg = [
 ]
 
 @client.command()
-@commands.has_any_role('Queen of Hearts')
+@commands.has_any_role('Queen of Hearts', 'CwD')
 async def stab(ctx,*, member: discord.Member):
   author_name = ctx.message.author.name
   
@@ -48,6 +48,7 @@ async def stab(ctx,*, member: discord.Member):
   await ctx.send(embed = embed)
 
 @client.command()
+@commands.has_any_role('Queen of Hearts', 'CwD')
 async def skin(ctx,*, member: discord.Member):
   author_name = ctx.message.author.name
   
