@@ -48,7 +48,6 @@ async def stab(ctx,*, member: discord.Member):
   await ctx.send(embed = embed)
 
 @client.command()
-@commands.has_any_role('Queen of Hearts')
 async def skin(ctx,*, member: discord.Member):
   author_name = ctx.message.author.name
   
