@@ -62,7 +62,7 @@ async def skin(ctx,*, member: discord.Member):
 
   
 @client.command()
-@commands.has_any_role('ping')
+@commands.has_any_role('Vice Leader')
 async def ping(ctx,*, member: discord.Member):
   author_name = ctx.message.author.name
   await ctx.send (f'{author_name} pinged {member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}')
