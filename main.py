@@ -6,7 +6,9 @@ import giphy_client
 from giphy_client.rest import ApiException
 import random
 
-client=commands.Bot(command_prefix=['pls ', 'Pls ', 'p', 'P'])
+intents = discord.Intents.default()
+intents.members = True
+client=commands.Bot(command_prefix=['pls ', 'Pls ', 'p', 'P'], intents = intents)
 client.remove_command("help")
 
 deleted_messages = {}
@@ -34,13 +36,40 @@ skinningimg = [
   'https://media.tenor.com/images/ab7b184c4bd43df45e1ffc2ffd5be2bd/tenor.gif'
 ]
 
-@client.command()
+@client.command(aliases=['Dm', 'DM'])
 @commands.has_any_role('Vice Leader')
-async def dm(ctx, user: discord.User, *, message=None):
-    message = message or "This Message is sent via DM"
-    await user.send(message)
+async def dm(ctx, *, message_and_mentions = None):
+    message = None
+    mentions = None
+    message_and_mentions = message_and_mentions.split(" ")
+    message_starting_index = -1
+    #for separating mentions and messages
+    for text_index in range(len(message_and_mentions)):
+        if not re.match("\<\@\!?\d*\>", message_and_mentions[text_index]):
+            message_starting_index = text_index
+            break
+    #if there are mentions in the command
+    if message_starting_index != -1 and message_starting_index != 0:
+        message = " ".join(message_and_mentions[message_starting_index:])
+        mentions = []
+        for mention in message_and_mentions[:message_starting_index]:
+            string_mentions = re.findall("\<\@\!?\d*\>", mention)
+            if string_mentions:
+                for user_mention in string_mentions:
+                    id = ""; i = 0
+                    while i < len(user_mention):
+                        if user_mention[i].isdigit():
+                            id += user_mention[i]
+                        i += 1
+                    mentions.append(int(id))
+        for user_id in mentions:
+            user = ctx.message.guild.get_member(user_id)
+            if user:
+                message = message if message else "This message is sent by " + ctx.author.name
+                await user.send(message)
     await ctx.send("Message sent!")
-
+    
+    
 @client.command()
 @commands.has_any_role('Queen of Hearts', 'CwD')
 async def stab(ctx,*, member: discord.Member):
