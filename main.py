@@ -5,6 +5,7 @@ from googletrans import Translator
 import giphy_client
 from giphy_client.rest import ApiException
 import random
+import re
 
 intents = discord.Intents.default()
 intents.members = True
