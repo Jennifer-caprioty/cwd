@@ -35,6 +35,11 @@ skinningimg = [
 ]
 
 @client.command()
+async def dm(ctx, user: discord.User, *, message=None):
+    message = message or "This Message is sent via DM"
+    await user.send(message)
+
+@client.command()
 @commands.has_any_role('Queen of Hearts', 'CwD')
 async def stab(ctx,*, member: discord.Member):
   author_name = ctx.message.author.name
