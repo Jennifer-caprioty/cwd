@@ -43,32 +43,46 @@ async def dm(ctx, *, message_and_mentions = None):
     message = None
     mentions = None
     message_and_mentions = message_and_mentions.split(" ")
-    message_starting_index = -1
+    message_starting_index = None
     #for separating mentions and messages
     for text_index in range(len(message_and_mentions)):
-        if not re.match("\<\@\!?\d*\>", message_and_mentions[text_index]):
+        if not re.match("\<\@\!?\d*\>|\<\@\&?\d*\>", message_and_mentions[text_index]):
             message_starting_index = text_index
             break
-    #if there are mentions in the command
-    if message_starting_index != -1 and message_starting_index != 0:
+    if message_starting_index is None:
+        message_starting_index = len(message_and_mentions)
+        message = "This message is sent by " + ctx.author.name
+    else:
         message = " ".join(message_and_mentions[message_starting_index:])
+    #if there are mentions in the command
+    if message_starting_index != 0:
         mentions = []
         for mention in message_and_mentions[:message_starting_index]:
-            string_mentions = re.findall("\<\@\!?\d*\>", mention)
+            string_mentions = re.findall("\<\@\!?\d*\>|\<\@\&?\d*\>", mention)
             if string_mentions:
-                for user_mention in string_mentions:
+                for mention in string_mentions:
+                    print(string_mentions)
                     id = ""; i = 0
-                    while i < len(user_mention):
-                        if user_mention[i].isdigit():
-                            id += user_mention[i]
+                    while i < len(mention):
+                        if mention[i].isdigit():
+                            id += mention[i]
                         i += 1
                     mentions.append(int(id))
-        for user_id in mentions:
-            user = ctx.message.guild.get_member(user_id)
+        users = []
+        await ctx.send('Message sent!')
+        for id in mentions:
+            user = ctx.message.guild.get_member(id)
+            role = ctx.message.guild.get_role(id)
             if user:
-                message = message if message else "This message is sent by " + ctx.author.name
-                await user.send(message)
-    await ctx.send("Message sent!")
+                if user not in users:
+                    users.append(user)
+            elif role:
+                for member in ctx.guild.members:
+                    if role in member.roles:
+                        if member not in users:
+                            users.append(member)
+        for user in users:
+            await user.send(message)
     
     
 @client.command()
