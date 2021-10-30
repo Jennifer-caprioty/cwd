@@ -37,6 +37,16 @@ skinningimg = [
   'https://media.tenor.com/images/ab7b184c4bd43df45e1ffc2ffd5be2bd/tenor.gif'
 ]
 
+whipping = [
+  'https://media.tenor.com/images/5b698ada9da22fdfe61368b8ec42333a/tenor.gif',
+  'https://media.tenor.com/images/90c3fa16a281c2c61c75d5a06d4bfdde/tenor.gif',
+  'https://media.tenor.com/images/a981e678b8ffcb5dc46d217d5f4b1e9a/tenor.gif',
+  'https://media.tenor.com/images/208a9d8fd11cbfb13f8ec65957e35078/tenor.gif',
+  'https://media.tenor.com/images/59af8444f20a8232ccf9f03846cf486f/tenor.gif',
+  'https://media.tenor.com/images/a997c2ab11856a0a2dc88caf6fa99759/tenor.gif',
+  'https://media.tenor.com/images/c3450e30a6b1e62040f9c0b37120fb5a/tenor.gif'
+]
+
 @client.command(aliases=['Dm', 'DM'])
 @commands.has_any_role('Vice Leader')
 async def dm(ctx, *, message_and_mentions = None):
@@ -99,6 +109,19 @@ async def stab(ctx,*, member: discord.Member):
 
   embed.set_image(url = random_link)
   await ctx.send (f'{author_name} stabbed {member.mention} ')
+  await ctx.send(embed = embed)
+  
+@client.command()
+@commands.has_any_role('Queen of Hearts', 'CwD')
+async def whip(ctx,*, member: discord.Member):
+  author_name = ctx.message.author.name
+  
+  embed = discord.Embed(color = discord.Colour.red())
+
+  random_link = random.choice(whipping)
+
+  embed.set_image(url = random_link)
+  await ctx.send (f'{author_name} whipped {member.mention} ')
   await ctx.send(embed = embed)
 
 @client.command()
