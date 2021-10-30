@@ -68,6 +68,7 @@ async def dm(ctx, *, message_and_mentions = None):
                             id += mention[i]
                         i += 1
                     mentions.append(int(id))
+                    await ctx.send("Message Sent!")
         users = []
         for id in mentions:
             user = ctx.message.guild.get_member(id)
@@ -85,7 +86,6 @@ async def dm(ctx, *, message_and_mentions = None):
                 await user.send(message)
             except:
                 pass
-                await ctx.send("Message Sent!")
     
     
 @client.command()
