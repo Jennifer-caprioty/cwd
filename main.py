@@ -35,6 +35,7 @@ skinningimg = [
 ]
 
 @client.command()
+@commands.has_any_role('Vice Leader')
 async def dm(ctx, user: discord.User, *, message=None):
     message = message or "This Message is sent via DM"
     await user.send(message)
