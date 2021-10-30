@@ -44,7 +44,20 @@ whipping = [
   'https://media.tenor.com/images/208a9d8fd11cbfb13f8ec65957e35078/tenor.gif',
   'https://media.tenor.com/images/59af8444f20a8232ccf9f03846cf486f/tenor.gif',
   'https://media.tenor.com/images/a997c2ab11856a0a2dc88caf6fa99759/tenor.gif',
-  'https://media.tenor.com/images/c3450e30a6b1e62040f9c0b37120fb5a/tenor.gif'
+  'https://media.tenor.com/images/c3450e30a6b1e62040f9c0b37120fb5a/tenor.gif',
+  'https://media.tenor.com/images/d47dc1efbc509174fdd4a748fb8f67fc/tenor.gif'
+]
+
+spanking = [
+  'https://media.tenor.com/images/b54d4d4397f735f9ab75df9a22db269f/tenor.gif',
+  'https://media.tenor.com/images/b01abd857e1065f038d191e891cb9f82/tenor.gif',
+  'https://media.tenor.com/images/594d794a96d3bb76c00d788c611ec6fa/tenor.gif',
+  'https://media.tenor.com/images/8e7fbc4a68e81264e18980cf4f474e64/tenor.gif',
+  'https://media.tenor.com/images/5e053219629f067801802c9f5b807220/tenor.gif',
+  'https://media.tenor.com/images/605c5c945479bd8fcad2448420b285d9/tenor.gif',
+  'https://media.tenor.com/images/5de8e26acdc4cd0b711908911d9dab81/tenor.gif',
+  'https://media.tenor.com/images/99bfa3d20f4491ed75f1080a0408f282/tenor.gif',
+  'https://media.tenor.com/images/28353a2d8bc02fb809cbad7d4f2894a9/tenor.gif'
 ]
 
 @client.command(aliases=['Dm', 'DM'])
@@ -112,7 +125,18 @@ async def stab(ctx,*, member: discord.Member):
   await ctx.send(embed = embed)
   
 @client.command()
-@commands.has_any_role('Queen of Hearts', 'CwD')
+async def spank(ctx,*, member: discord.Member):
+  author_name = ctx.message.author.name
+  
+  embed = discord.Embed(color = discord.Colour.red())
+
+  random_link = random.choice(spanking)
+
+  embed.set_image(url = random_link)
+  await ctx.send (f'{author_name} spanked {member.mention} ')
+  await ctx.send(embed = embed)
+  
+@client.command()
 async def whip(ctx,*, member: discord.Member):
   author_name = ctx.message.author.name
   
