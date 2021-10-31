@@ -60,15 +60,6 @@ spanking = [
   'https://media.tenor.com/images/28353a2d8bc02fb809cbad7d4f2894a9/tenor.gif'
 ]
 
-@client.event
-async def on_message(message):
-  channel = client.get_channel(904434928303882251)
-  embed=discord.Embed(colour=discord.Colour.gold())
-  embed.set_author(name=f"User Info ~ {message.author}")
-  embed.add_field(name="Message: ", value=message.content, inline=False)
-  if message.author != client.user and message.channel == message.author.dm_channel:
-        await channel.send(embed=embed)
-
 @client.command(aliases=['Dm', 'DM'])
 @commands.has_any_role('Vice Leader')
 async def dm(ctx, *, message_and_mentions = None):
