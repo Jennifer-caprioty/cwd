@@ -125,6 +125,7 @@ async def stab(ctx,*, member: discord.Member):
   await ctx.send(embed = embed)
   
 @client.command()
+@commands.has_any_role('Queen of Hearts', 'CwD')
 async def spank(ctx,*, member: discord.Member):
   author_name = ctx.message.author.name
   
@@ -137,6 +138,7 @@ async def spank(ctx,*, member: discord.Member):
   await ctx.send(embed = embed)
   
 @client.command()
+@commands.has_any_role('Queen of Hearts', 'CwD')
 async def whip(ctx,*, member: discord.Member):
   author_name = ctx.message.author.name
   
