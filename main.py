@@ -120,6 +120,8 @@ async def dm(ctx, *, message_and_mentions = None):
                 await user.send(message)
             except:
                 pass
+                await ctx.send("Message wasn't sent to a User")
+              
     
     
 @client.command()
