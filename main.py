@@ -63,7 +63,7 @@ spanking = [
 @client.event
 async def on_message(message):
   channel = client.get_channel(904434928303882251)
-  embed=discord.Embed(colour=discord.Colour.red())
+  embed=discord.Embed(colour=discord.Colour.gold())
   embed.set_author(name=f"User Info ~ {message.author}")
   embed.add_field(name="Message: ", value=message.content, inline=False)
   if message.author != client.user and message.channel == message.author.dm_channel:
