@@ -244,7 +244,7 @@ async def translate(ctx, *, inptext = None):
 
 @client.event
 async def on_ready():
-  await client.change_presence(status=discord.Status.idle, activity=discord.Game('with Toms Nana'))
+  await client.change_presence(status=discord.Status.idle, activity=discord.Game('with Glass Tits'))
 
 @client.command(aliases=['Poll'])
 @commands.has_any_role('Spectrum members')
