@@ -9,7 +9,7 @@ import re
 
 intents = discord.Intents.default()
 intents.members = True
-client=commands.Bot(command_prefix=['pls ', 'Pls ', 'p', 'P'], intents = intents)
+client=commands.Bot(command_prefix=['pls ', 'Pls ', 'p', 'P', 'p ', 'P '], intents = intents)
 client.remove_command("help")
 
 deleted_messages = {}
