@@ -60,6 +60,15 @@ spanking = [
   'https://media.tenor.com/images/28353a2d8bc02fb809cbad7d4f2894a9/tenor.gif'
 ]
 
+shooting = [
+  'xyz',
+]
+
+killed = [
+  'abc',
+  
+]
+
 @client.event
 async def on_message(message):
   channel = client.get_channel(904434928303882251)
