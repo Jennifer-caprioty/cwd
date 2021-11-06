@@ -79,6 +79,13 @@ async def on_message(message):
         await channel.send(embed=embed)
         
   await client.process_commands(message)
+  
+@client.command()
+async def avatar(ctx, *, member: discord.Member=None): # set the member object to None
+    if not member: # if member is no mentioned
+        member = ctx.message.author # set member as the author
+    userAvatar = member.avatar_url
+    await ctx.send(userAvatar)
 
 @client.command(aliases=['Dm', 'DM'])
 @commands.has_any_role('Vice Leader')
