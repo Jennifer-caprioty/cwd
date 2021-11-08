@@ -327,7 +327,7 @@ async def hug(ctx,*, member: discord.Member, q="hug"):
         emb = discord.Embed(title=q)
         emb.set_image(url = f'https://media.giphy.com/media/{giff.id}/giphy.gif')
 
-        await ctx.send (f'{author_name} has hugged {member.mention}')
+        await ctx.send (f'{author_name} hugged {member.mention}')
         await ctx.channel.send(embed=emb)
     except ApiException as e:
         print("Exception when calling DefaultApi->gifs_search_get: %s\n" % e)
