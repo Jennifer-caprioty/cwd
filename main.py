@@ -333,7 +333,7 @@ async def hug(ctx,*, member: discord.Member, q="hug"):
         print("Exception when calling DefaultApi->gifs_search_get: %s\n" % e)
         
 @client.command(aliases=['Fuck'])
-async def fuck(ctx,*, member: discord.Member, q="fuck"):
+async def fuck(ctx,*, member: discord.Member, q="porn fucking"):
 
     api_key="0XFxHlEGR4hUO7RxdHslVuqqmWf5kcRm"
     api_instance = giphy_client.DefaultApi()
