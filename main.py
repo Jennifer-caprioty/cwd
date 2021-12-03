@@ -141,7 +141,7 @@ async def dm(ctx, *, message_and_mentions = None):
     
     
 @client.command()
-@commands.has_any_role('Queen of Hearts', 'CwD')
+@commands.has_any_role('Queen of Hearts', 'Pantheon Members')
 async def stab(ctx,*, member: discord.Member):
   author_name = ctx.message.author.name
   
@@ -154,7 +154,7 @@ async def stab(ctx,*, member: discord.Member):
   await ctx.send(embed = embed)
   
 @client.command()
-@commands.has_any_role('Queen of Hearts', 'CwD')
+@commands.has_any_role('Queen of Hearts', 'Pantheon Members')
 async def spank(ctx,*, member: discord.Member):
   author_name = ctx.message.author.name
   
@@ -167,7 +167,7 @@ async def spank(ctx,*, member: discord.Member):
   await ctx.send(embed = embed)
   
 @client.command()
-@commands.has_any_role('Queen of Hearts', 'CwD')
+@commands.has_any_role('Queen of Hearts', 'Pantheon Members')
 async def whip(ctx,*, member: discord.Member):
   author_name = ctx.message.author.name
   
@@ -180,7 +180,7 @@ async def whip(ctx,*, member: discord.Member):
   await ctx.send(embed = embed)
 
 @client.command()
-@commands.has_any_role('Queen of Hearts', 'CwD')
+@commands.has_any_role('Queen of Hearts', 'Pantheon Members')
 async def skin(ctx,*, member: discord.Member):
   author_name = ctx.message.author.name
   
@@ -207,7 +207,7 @@ async def help(ctx):
   em.add_field(name = "Snipe", value = "snipe, s")
   em.add_field(name = "Translate", value = "translate, ts")
   em.add_field(name = "Poll", value = "poll, pollop")
-  em.add_field(name = "Fun", value = "hug, kick, lick, slap, punch, stare, kiss, highfive, bye")
+  em.add_field(name = "Fun", value = "skin, stab, spank, whip, hug, kick, lick, slap, punch, stare, kiss, highfive, bye")
 
   await ctx.send(embed = em)
 
