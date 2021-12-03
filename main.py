@@ -276,7 +276,7 @@ async def on_ready():
   await client.change_presence(status=discord.Status.idle, activity=discord.Game('with Glass Tits'))
 
 @client.command(aliases=['Poll'])
-@commands.has_any_role('Spectrum members')
+@commands.has_any_role('Spectrum members', 'Tao Lord', 'Emperor Lord', 'Elder')
 async def poll(ctx, *, question=None):
     if question == None:
         await ctx.send("Please write a poll!")
@@ -298,7 +298,7 @@ async def poll(ctx, *, question=None):
 
 
 @client.command(aliases=['Pollop'])
-@commands.has_any_role('Spectrum members')
+@commands.has_any_role('Spectrum members', 'Tao Lord', 'Emperor Lord', 'Elder')
 async def pollop(ctx, *, question=None):
     if question == None:
         await ctx.send("Please write a poll!")
