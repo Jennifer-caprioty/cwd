@@ -88,7 +88,7 @@ async def avatar(ctx, *, member: discord.Member=None): # set the member object t
     await ctx.send(userAvatar)
 
 @client.command(aliases=['Dm', 'DM'])
-@commands.has_any_role('Vice Leader')
+@commands.has_any_role('Vice Leader', 'Elder', 'Emperor Lord', 'Tao Lord')
 async def dm(ctx, *, message_and_mentions = None):
     message = None
     mentions = None
@@ -205,12 +205,23 @@ async def help(ctx):
   em = discord.Embed(title = "Help", description = "Use Pls help <command> for more info on a command ")
 
   em.add_field(name = "Snipe", value = "snipe, s")
+  em.add_field(name = "DM", value = "dm")
   em.add_field(name = "Translate", value = "translate, ts")
   em.add_field(name = "Poll", value = "poll, pollop")
   em.add_field(name = "Fun", value = "skin, stab, spank, whip, hug, kick, lick, slap, punch, stare, kiss, highfive, bye")
+  
 
   await ctx.send(embed = em)
 
+@help.command(aliases=['dm, Dm'])
+async def dm(ctx):
+
+  em = discord.Embed(title = "DM", description = "Message others via bot", color = ctx.author.color)
+  em.add_field(name = "**Syntax**", value = "Pls dm @user message")
+
+  await ctx.send(embed = em)
+  
+  
 @help.command(aliases=['Snipe', 's', 'S'])
 async def snipe(ctx):
 
