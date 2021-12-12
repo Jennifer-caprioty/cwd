@@ -208,7 +208,7 @@ async def help(ctx):
   em.add_field(name = "DM", value = "dm")
   em.add_field(name = "Translate", value = "translate, ts")
   em.add_field(name = "Poll", value = "poll, pollop")
-  em.add_field(name = "Fun", value = "Here ain't no fun")
+  em.add_field(name = "Fun", value = "No Fun")
   
 
   await ctx.send(embed = em)
