@@ -217,7 +217,7 @@ async def help(ctx):
 async def dm(ctx):
 
   em = discord.Embed(title = "DM", description = "Message others via bot", color = ctx.author.color)
-  em.add_field(name = "**Syntax**", value = "Pls dm @user message")
+  em.add_field(name = "**Syntax**", value = "Pls dm @user/role message")
 
   await ctx.send(embed = em)
   
