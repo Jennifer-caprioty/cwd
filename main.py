@@ -566,6 +566,27 @@ async def snipe(ctx):
     else:
         embed=discord.Embed(title="Sniper",description="Nothing to snipe!")
     await ctx.send(embed = embed)
+  
+@client.event
+async def on_message_edit(message_before, message_after):
+      
+        author = message_before.author
+        guild = message_before.guild.name
+        channel = message_before.channel
+        
+@client.command(aliases=['se'])
+async def snipeedited(ctx):
+    global edited_messages
+
+        await channel.send(f"""
+   
+        Original Message
+        {message_before.content}
+
+        Updated Message
+        {message_after.content}""")
+
+
     
 
 client.run(os.getenv('TOKEN'))
