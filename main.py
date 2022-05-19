@@ -11,7 +11,7 @@ import datetime
 
 intents = discord.Intents.default()
 intents.members = True
-client=commands.Bot(command_prefix=['pls ', 'Pls ', 'p', 'P', 'p ', 'P '], intents = intents)
+client=commands.Bot(command_prefix=['pls ', 'Pls ', 'p', 'P', 'p ', 'P ', 'Pls'], intents = intents)
 client.remove_command("help")
 
 deleted_messages = {}
@@ -210,7 +210,7 @@ async def on_ready():
     print('Ready to giveaway!')
 
 
-@client.command()
+@client.command(aliases = ['gw', 'Gw', 'GW', 'gW'])
 @commands.has_role("Vice Leader")
 async def giveaway(ctx):
     # Giveaway command requires the user to have a "Giveaway Host" role to function properly
@@ -300,7 +300,8 @@ async def reroll(ctx, channel: discord.TextChannel, id_ : int):
     reroll_announcement.set_author(name = f'The giveaway was re-rolled by the host!', icon_url = 'https://i.imgur.com/DDric14.png')
     reroll_announcement.add_field(name = f'🥳 New Winner:', value = f'{winner.mention}', inline = False)
     await channel.send(embed = reroll_announcement)
-
+    
+@client.command(aliases=['choose', 'Choose', 'Pick'])
 async def pick(ctx, *args):
   winner = random.choice(args)
   winlistx = random.choice(winlist)
