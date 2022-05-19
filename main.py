@@ -322,6 +322,8 @@ async def help(ctx):
   em.add_field(name = "DM", value = "dm")
   em.add_field(name = "Translate", value = "translate, ts")
   em.add_field(name = "Poll", value = "poll, pollop")
+  em.add_field(name = "Choose/Pick", value = "choose, pick")
+  em.add_field(name = "Giveaway", value = "Giveaway, gw")
   em.add_field(name = "Fun", value = "No Fun")
   
 
@@ -332,6 +334,22 @@ async def dm(ctx):
 
   em = discord.Embed(title = "DM", description = "Message others via bot", color = ctx.author.color)
   em.add_field(name = "**Syntax**", value = "Pls dm @user/role message")
+
+  await ctx.send(embed = em)
+  
+@help.command(aliases=['gw, Gw'])
+async def Giveaway(ctx):
+
+  em = discord.Embed(title = "Giveaway", description = "A Giveaway system", color = ctx.author.color)
+  em.add_field(name = "**Syntax**", value = "Pls Giveaway/gw")
+
+  await ctx.send(embed = em)
+  
+@help.command(aliases=['choose, pick'])
+async def dm(ctx):
+
+  em = discord.Embed(title = "Choose/Pick", description = "Make the bot choose something random for you", color = ctx.author.color)
+  em.add_field(name = "**Syntax**", value = "Pls choose thing1 thing2 thing3")
 
   await ctx.send(embed = em)
   
@@ -457,28 +475,6 @@ async def hug(ctx,*, member: discord.Member, q="hug"):
     except ApiException as e:
         print("Exception when calling DefaultApi->gifs_search_get: %s\n" % e)
         
-@client.command(aliases=['Fuck'])
-async def fuck(ctx,*, member: discord.Member, q="porn fucking"):
-
-    api_key="0XFxHlEGR4hUO7RxdHslVuqqmWf5kcRm"
-    api_instance = giphy_client.DefaultApi()
-
-    author_name = ctx.message.author.name
-
-    try: 
-    # Search Endpoint
-        
-        api_response = api_instance.gifs_search_get(api_key, q, limit=50, rating='r')
-        lst = list(api_response.data)
-        giff = random.choice(lst)
-
-        emb = discord.Embed(title=q)
-        emb.set_image(url = f'https://media.giphy.com/media/{giff.id}/giphy.gif')
-
-        await ctx.send (f'{author_name} fucked {member.mention}')
-        await ctx.channel.send(embed=emb)
-    except ApiException as e:
-        print("Exception when calling DefaultApi->gifs_search_get: %s\n" % e)
         
 @client.command(aliases=['Kick'])
 async def kick(ctx,*, member: discord.Member, q="kicked"):
