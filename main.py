@@ -346,7 +346,7 @@ async def Giveaway(ctx):
   await ctx.send(embed = em)
   
 @help.command(aliases=['choose, pick'])
-async def dm(ctx):
+async def Choose(ctx):
 
   em = discord.Embed(title = "Choose/Pick", description = "Make the bot choose something random for you", color = ctx.author.color)
   em.add_field(name = "**Syntax**", value = "Pls choose thing1 thing2 thing3")
