@@ -9,7 +9,7 @@ import re
 import asyncio
 import datetime
 
-servers = 819630334491754547
+servers = [819630334491754547]
 
 intents = discord.Intents.default()
 intents.members = True
