@@ -677,7 +677,26 @@ async def snipe(ctx):
         embed=discord.Embed(title="Sniper",description="Nothing to snipe!")
     await ctx.send(embed = embed)
 
+new = None
 
+@client.event
+async def on_message_edit(before, after):
+    global old
+    global new
+    global author 
+    old = before.content
+    new = after.content
+    author = after.author.name
+
+@client.command(aliases=['se'])
+async def snipeedit(ctx):
+    if new is None:
+        embed=discord.Embed(title="Sniper",description="No Edit to snipe!")
+    else:
+        embed=discord.Embed(title="",description=f"Before: {old}\nAfter: {new}")    
+        #embed.set_author(name="Sniper", icon_url={after.author.avatar_url})
+        embed.set_footer(text=f"Message edited by ['@{author}']")
+    await ctx.send(embed=embed)
     
 
 client.run(os.getenv('TOKEN'))
