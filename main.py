@@ -690,8 +690,8 @@ async def on_message_edit(before, after):
     new = after.content
     author = after.author.name
 
-@client.command(aliases=['se'])(guild_ids = servers)
-async def snipeedit(ctx):
+@client.command(guild_ids = servers)
+async def se(ctx):
     if new is None:
         embed=discord.Embed(title="Sniper",description="No Edit to snipe!")
     else:
