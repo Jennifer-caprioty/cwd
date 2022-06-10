@@ -9,6 +9,8 @@ import re
 import asyncio
 import datetime
 
+servers = 819630334491754547
+
 intents = discord.Intents.default()
 intents.members = True
 client=commands.Bot(command_prefix=['pls ', 'Pls ', 'p', 'P', 'p ', 'P ', 'Pls'], intents = intents)
@@ -688,14 +690,14 @@ async def on_message_edit(before, after):
     new = after.content
     author = after.author.name
 
-@client.command(aliases=['se'])
+@client.command(aliases=['se'])(guild_ids = servers)
 async def snipeedit(ctx):
     if new is None:
         embed=discord.Embed(title="Sniper",description="No Edit to snipe!")
     else:
         embed=discord.Embed(title="",description=f"Before: {old}\nAfter: {new}")    
         #embed.set_author(name="Sniper", icon_url={after.author.avatar_url})
-        embed.set_footer(text=f"Message edited by ['@{author}']")
+        embed.set_footer(text=f"Message edited by {author}")
     await ctx.send(embed=embed)
     
 
