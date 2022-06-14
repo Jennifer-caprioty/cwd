@@ -9,8 +9,6 @@ import re
 import asyncio
 import datetime
 
-servers = [819630334491754547]
-
 intents = discord.Intents.default()
 intents.members = True
 client=commands.Bot(command_prefix=['pls ', 'Pls ', 'p', 'P', 'p ', 'P ', 'Pls'], intents = intents)
