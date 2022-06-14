@@ -211,7 +211,6 @@ async def on_ready():
 
 
 @client.command(aliases = ['gw', 'Gw', 'GW', 'gW'])
-@commands.has_role("Vice Leader")
 async def giveaway(ctx):
     # Giveaway command requires the user to have a "Giveaway Host" role to function properly
 
@@ -281,7 +280,7 @@ async def giveaway(ctx):
 
 
 @client.command()
-@commands.has_role("Vice Leader")
+@commands.has_any_role('Vice Leader')
 async def reroll(ctx, channel: discord.TextChannel, id_ : int):
     # Reroll command requires the user to have a "Giveaway Host" role to function properly
     try:
@@ -408,7 +407,6 @@ async def on_ready():
   await client.change_presence(status=discord.Status.idle, activity=discord.Game('with OwO'))
 
 @client.command(aliases=['Poll'])
-@commands.has_any_role('Spectrum members', 'Tao Lord', 'Emperor Lord', 'Elder')
 async def poll(ctx, *, question=None):
     if question == None:
         await ctx.send("Please write a poll!")
@@ -430,7 +428,6 @@ async def poll(ctx, *, question=None):
 
 
 @client.command(aliases=['Pollop'])
-@commands.has_any_role('Spectrum members', 'Tao Lord', 'Emperor Lord', 'Elder')
 async def pollop(ctx, *, question=None):
     if question == None:
         await ctx.send("Please write a poll!")
