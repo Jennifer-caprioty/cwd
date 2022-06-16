@@ -313,7 +313,7 @@ async def ping(ctx,*, member: discord.Member):
   author_name = ctx.message.author.name
   await ctx.send (f'{author_name} pinged {member.mention}')
   time.sleep(2)
-  ctx.send (f'{author_name} pinged {member.mention}')
+  await ctx.send (f'{author_name} pinged {member.mention}')
   time.sleep(2)
   
 
