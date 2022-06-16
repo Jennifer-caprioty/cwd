@@ -310,7 +310,27 @@ async def pick(ctx, *args):
 @commands.has_any_role('Vice Leader')
 async def ping(ctx,*, member: discord.Member):
   author_name = ctx.message.author.name
-  await ctx.send (f'{author_name} pinged {member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}{member.mention}')
+  await ctx.send (f'{author_name} pinged {member.mention}')
+  time.sleep(2)
+  await ctx.send (f'{author_name} pinged {member.mention}')
+  time.sleep(2)
+  await ctx.send (f'{author_name} pinged {member.mention}')
+  time.sleep(2)
+  await ctx.send (f'{author_name} pinged {member.mention}')
+  time.sleep(2)
+  await ctx.send (f'{author_name} pinged {member.mention}')
+  time.sleep(2)
+  await ctx.send (f'{author_name} pinged {member.mention}')
+  time.sleep(2)
+  await ctx.send (f'{author_name} pinged {member.mention}')
+  time.sleep(2)
+  await ctx.send (f'{author_name} pinged {member.mention}')
+  time.sleep(2)
+  await ctx.send (f'{author_name} pinged {member.mention}')
+  time.sleep(2)
+  await ctx.send (f'{author_name} pinged {member.mention}')
+  time.sleep(2)
+
 
 
 @client.group(invoke_without_command=True)
