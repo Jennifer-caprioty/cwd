@@ -9,6 +9,7 @@ import re
 import asyncio
 import datetime
 import time
+import requests
 
 intents = discord.Intents.default()
 intents.members = True
