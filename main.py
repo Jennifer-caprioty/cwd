@@ -773,7 +773,7 @@ async def on_message(message):
             f = l["results"][0]["lexicalEntries"][0]["entries"][0]["senses"][0]["definitions"][0]
             embed = discord.Embed(colour = discord.Colour.from_rgb(107, 230, 255), title = 'Oxford Dictionary - ' + word, description = str(f))
             await message.channel.send(content = None, embed = embed)
-      await client.process_commands(message)
+     await client.process_commands(message)
 
 
 client.run(os.getenv('TOKEN'))
