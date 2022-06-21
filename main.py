@@ -9,6 +9,7 @@ import re
 import asyncio
 import datetime
 import time
+import json
 import requests
 
 intents = discord.Intents.default()
