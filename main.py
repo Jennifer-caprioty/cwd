@@ -9,6 +9,7 @@ import re
 import asyncio
 import datetime
 import time
+import requests
 
 intents = discord.Intents.default()
 intents.members = True
@@ -720,5 +721,32 @@ async def snipeedit(ctx):
         embed.set_footer(text=f"Message edited by {author}")
     await ctx.send(embed=embed)
     
+@client.command(aliases=['ud'])
+async def urban(ctx, *msg):
+
+        word = ' '.join(msg)
+        api = "http://api.urbandictionary.com/v0/define"
+        # Send request to the Urban Dictionary API and grab info
+        response = requests.get(api, params=[("term", word)]).json()
+        embed = discord.Embed(description="No results found!", colour=0xFF0000)
+        if len(response["list"]) == 0:
+            return await ctx.send(embed=embed)
+        # Add results to the embed
+        embed = discord.Embed(title="Word", description=word, colour=embed.colour)
+        embed.add_field(name="Top definition:", value=response['list'][0]['definition'])
+        embed.add_field(name="Examples:", value=response['list'][0]['example'])
+        await ctx.send(embed=embed)
+
+@client.command(aliases=['user'])
+async def info(ctx, user: discord.Member):
+
+    embed = discord.Embed(title="User profile: " + user.name, colour=user.colour)
+    embed.add_field(name="Name:", value=user.name)
+    embed.add_field(name="ID:", value=user.id)
+    embed.add_field(name="Status:", value=user.status)
+    embed.add_field(name="Highest role:", value=user.top_role)
+    embed.add_field(name="Joined:", value=user.joined_at)
+    embed.set_thumbnail(url=user.avatar_url)
+    await ctx.send(embed=embed)
 
 client.run(os.getenv('TOKEN'))
