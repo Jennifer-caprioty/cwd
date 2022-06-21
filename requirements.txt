@@ -2,3 +2,4 @@ discord.py
 asyncio
 googletrans==4.0.0rc1
 giphy_client==1.0.0
+requests==2.28.0 
