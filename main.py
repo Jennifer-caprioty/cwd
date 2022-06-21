@@ -765,7 +765,6 @@ async def on_message(message):
       if message.content.find('pdefine') != -1:
             s = str(message.content)
             word = s[8:]
-            print(word)
             url = "https://od-api.oxforddictionaries.com/api/v2/entries/" + language + "/" + word.lower() + "?fields=" + fields
             r = requests.get(url, headers={"app_id": app_id, "app_key": app_key}) 
             t = json.dumps(r.json())
