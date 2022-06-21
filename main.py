@@ -759,12 +759,15 @@ fields = 'definitions'
 
 @client.event
 async def on_message(message):
-    id = client.get_guild(768122870642507826)
-    channels = ["general"]
-    if str(message.channel) in channels:
-      if message.content.find('pdefine') != -1:
+   id = client.get_guild(819630334491754547)
+   channels = ["🗣chitchat🗨"]
+   if str(message.channel) in channels:
+     words = ["Pls define", "plsdefine", "pls define", "Plsdefine"]
+     for w in words:
+      if w in message.content:
             s = str(message.content)
-            word = s[8:]
+            word = s[10:]
+            print(word)
             url = "https://od-api.oxforddictionaries.com/api/v2/entries/" + language + "/" + word.lower() + "?fields=" + fields
             r = requests.get(url, headers={"app_id": app_id, "app_key": app_key}) 
             t = json.dumps(r.json())
