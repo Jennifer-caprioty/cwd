@@ -219,7 +219,7 @@ async def say(ctx, *, text):
 
         await ctx.send(f"{text}")
     else:
-        await ctx.send('You\'re not powerful enough to use it idiot.')
+        await ctx.send('Only Tam is allowed to use it noob.')
 
 
   
