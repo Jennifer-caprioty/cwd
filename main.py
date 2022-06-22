@@ -754,7 +754,7 @@ async def info(ctx, user: discord.Member):
  
 
 @client.command(aliases=['say'])
-async def say(ctx, *msg):
+async def msg(ctx, *msg):
     """Makes the bot talk."""
     try:
         say = ' '.join(msg)
