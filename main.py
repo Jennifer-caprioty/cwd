@@ -18,31 +18,6 @@ intents.members = True
 client=commands.Bot(command_prefix=['pls ', 'Pls ', 'p', 'P', 'p ', 'P ', 'Pls'], intents = intents)
 client.remove_command("help")
 
-app_id = '93b58d98'
-app_key = 'ea66df7a1fc4be864436d235cee2c6c9'
-language = 'en-us'
-fields = 'definitions'
-
-
-@client.event
-async def on_message(message):
-   id = client.get_guild(819630334491754547)
-   channels = ["🗣chitchat🗨"]
-   if str(message.channel) in channels:
-     words = ["Pls define", "plsdefine", "pls define", "Plsdefine"]
-     for w in words:
-      if w in message.content:
-            s = str(message.content)
-            word = s[10:]
-            print(word)
-            url = "https://od-api.oxforddictionaries.com/api/v2/entries/" + language + "/" + word.lower() + "?fields=" + fields
-            r = requests.get(url, headers={"app_id": app_id, "app_key": app_key}) 
-            t = json.dumps(r.json())
-            l = json.loads(json.dumps(r.json()))
-            f = l["results"][0]["lexicalEntries"][0]["entries"][0]["senses"][0]["definitions"][0]
-            embed = discord.Embed(colour = discord.Colour.from_rgb(107, 230, 255), title = 'Oxford Dictionary - ' + word, description = str(f))
-            await message.channel.send(content = None, embed = embed)
-      await client.process_commands(message)
 
 deleted_messages = {}
 
@@ -778,6 +753,13 @@ async def info(ctx, user: discord.Member):
     await ctx.send(embed=embed)
  
 
+@client.command(aliases=['say'])
+async def say(ctx, *msg):
+    """Makes the bot talk."""
+    try:
+        say = ' '.join(msg)
+        await client.delete_message(ctx.message)
+        return await ctx.send(say)
 
 
 client.run(os.getenv('TOKEN'))
