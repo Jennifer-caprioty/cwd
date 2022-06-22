@@ -211,7 +211,6 @@ async def skin(ctx,*, member: discord.Member):
 
 @client.command(aliases=['say'])
 async def msg(ctx, *msg):
-    try:
         say = ' '.join(msg)
         await client.delete_message(ctx.message)
         return await ctx.send(say)
