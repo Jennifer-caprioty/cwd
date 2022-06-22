@@ -751,15 +751,5 @@ async def info(ctx, user: discord.Member):
     embed.add_field(name="Joined:", value=user.joined_at)
     embed.set_thumbnail(url=user.avatar_url)
     await ctx.send(embed=embed)
- 
-
-@client.command(aliases=['say'])
-async def msg(ctx, *msg):
-    """Makes the bot talk."""
-    try:
-        say = ' '.join(msg)
-        await client.delete_message(ctx.message)
-        return await ctx.send(say)
-
 
 client.run(os.getenv('TOKEN'))
