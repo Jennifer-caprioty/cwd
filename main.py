@@ -207,6 +207,16 @@ async def skin(ctx,*, member: discord.Member):
   await ctx.send (f'{author_name} is skinning {member.mention} ')
   await ctx.send(embed = embed)
   
+ 
+
+@client.command(aliases=['say'])
+async def msg(ctx, *msg):
+    try:
+        say = ' '.join(msg)
+        await client.delete_message(ctx.message)
+        return await ctx.send(say)
+
+  
 #giveaway
 @client.event
 async def on_ready():
