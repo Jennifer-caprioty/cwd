@@ -209,11 +209,18 @@ async def skin(ctx,*, member: discord.Member):
   
  
 
-@client.command(aliases=['say'])
-async def msg(ctx, *msg):
-        say = ' '.join(msg)
-        await client.delete_message(ctx.message)
-        return await ctx.send(say)
+
+
+@client.command()
+async def say(ctx, *, text):
+    if ctx.message.author.id == 705116051024773213:
+        message = ctx.message
+        await message.delete()
+
+        await ctx.send(f"{text}")
+    else:
+        await ctx.send('You\'re not powerful enough to use it idiot.')
+
 
   
 #giveaway
