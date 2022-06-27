@@ -21,6 +21,21 @@ client.remove_command("help")
 
 deleted_messages = {}
 
+
+winlist2 = [
+  'yes',
+  'No',
+  'Maybe',
+  'Possibly',
+  'Yes Daddy',
+  'Yes Mommy',
+  'You Wish',
+  'We'll never know',
+  'Even I cant answer that',
+  'Never'
+]
+
+
 stabby = [
   'https://i.imgur.com/kRuLOci.gif',
   'https://i.imgur.com/lVC7TRf.gif',
@@ -437,6 +452,11 @@ async def fun(ctx):
   em.add_field(name = "**Syntax**", value = "Pls [Any fun command] [@discord_User]")
 
   await ctx.send(embed = em)
+
+@client.command(aliases=['8b'])
+async def 8ball(ctx, *args):
+  winlistx = random.choice(winlist2)
+  await ctx.send(f'{winlistx})
 
 
 @client.command(aliases=['ts'])
