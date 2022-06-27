@@ -23,17 +23,8 @@ deleted_messages = {}
 
 
 winlist2 = [
-  'yes',
-  'No',
-  'Maybe',
-  'Possibly',
-  'Yes Daddy',
-  'Yes Mommy',
-  'You Wish',
-  'We will never know',
-  'Even I cant answer that',
-  'Never'
-]
+  'Yes',
+  'No', 'Maybe', 'Yes Daddy', 'Yes Mommy', 'Possibly', "We'll never know", 'You Wish', "Even I can't answer that", 'Never' ]
 
 
 stabby = [
