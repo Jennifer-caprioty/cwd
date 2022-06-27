@@ -444,8 +444,8 @@ async def fun(ctx):
 
   await ctx.send(embed = em)
 
-@client.command(aliases=['8b'])
-async def 8ball(ctx, *args):
+@client.command(aliases=['b'])
+async def ball(ctx, *args):
   winlistx = random.choice(winlist2)
   await ctx.send(f'{winlistx})
 
