@@ -447,7 +447,7 @@ async def fun(ctx):
 @client.command(aliases=['b'])
 async def ball(ctx, *args):
   winlistx = random.choice(winlist2)
-  await ctx.send(f'{winlistx})
+  await ctx.send(winlistx)
 
 
 @client.command(aliases=['ts'])
