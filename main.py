@@ -30,7 +30,7 @@ winlist2 = [
   'Yes Daddy',
   'Yes Mommy',
   'You Wish',
-  'We'll never know',
+  "We'll never know",
   'Even I cant answer that',
   'Never'
 ]
