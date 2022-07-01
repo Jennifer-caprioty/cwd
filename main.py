@@ -160,6 +160,23 @@ async def dm(ctx, *, message_and_mentions = None):
                 await ctx.send("Message wasn't sent to a User")
               
     
+app_id = '93b58d98'
+app_key = 'ea66df7a1fc4be864436d235cee2c6c9'
+language = 'en-us'
+fields = 'definitions'
+
+
+@client.command(aliases=['definee'])
+async def define(ctx, word):
+    words = word
+    print(words)
+    url = "https://od-api.oxforddictionaries.com/api/v2/entries/" + language + "/" + words.lower() + "?fields=" + fields
+    r = requests.get(url, headers={"app_id": app_id, "app_key": app_key}) 
+    t = json.dumps(r.json())
+    l = json.loads(json.dumps(r.json()))
+    f = l["results"][0]["lexicalEntries"][0]["entries"][0]["senses"][0]["definitions"][0]
+    embed = discord.Embed(colour = discord.Colour.from_rgb(107, 230, 255), title = 'Oxford Dictionary - ' + word, description = str(f))
+    await ctx.send(content = None, embed = embed)
     
 @client.command()
 @commands.has_any_role('Queen of Hearts', 'Pantheon Members')
