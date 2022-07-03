@@ -101,6 +101,47 @@ async def on_message(message):
         
   await client.process_commands(message)
   
+@client.command(aliases=['rem', 'r'])
+async def reminder(ctx, task, *, args):
+ user = ctx.author
+ if "h" in args and "m" in args: 
+    main = args.split( )
+    print(main)
+    x = len(main)
+    if x is 2:
+        hour = main[0]
+        hour_int = hour[:-1]
+        minutes = main[1]
+        minutes_int = minutes[:-1]
+        x1 = int(hour_int)
+        x2 = int(minutes_int)
+        hour_in_seconds = x1*60*60
+        minutes_in_seconds = x2*60
+        total_time = hour_in_seconds + minutes_in_seconds
+        await ctx.send(f"{user.mention} You'll be reminded for {task} in {args}")
+        await asyncio.sleep(total_time)
+        await user.send(task)
+
+ elif "h" in args:
+    hr = args[:-1]
+    hr = int(hr)
+    hr_in_seconds = hr*60*60
+    await ctx.send(f"{user.mention} You'll be reminded for {task} in {args}")
+    await asyncio.sleep(hr_in_seconds)
+    await user.send(task)
+
+ elif "m" in args:
+    min = args[:-1]
+    min = int(min)
+    min_in_seconds = min*60
+    await ctx.send(f"{user.mention} You'll be reminded for {task} in {args}")
+    await asyncio.sleep(min_in_seconds)
+    await user.send(task)
+
+ else:
+    await ctx.send("Use Correct Format: Pls rem (Task) (0)h (0)m")
+
+  
 @client.command()
 async def avatar(ctx, *, member: discord.Member=None): # set the member object to None
     if not member: # if member is no mentioned
