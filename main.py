@@ -101,7 +101,7 @@ async def on_message(message):
         
   await client.process_commands(message)
   
-@client.command(aliases=['rem', 'r'])
+@client.command(aliases=['rem', 'r', 'remind'])
 async def reminder(ctx,*, args):
  user = ctx.author
  message = "in".join(args.split("in")[:-1])
