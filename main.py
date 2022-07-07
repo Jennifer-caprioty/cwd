@@ -102,9 +102,9 @@ async def on_message(message):
   await client.process_commands(message)
   
 @client.command(aliases=['rem', 'r'])
-async def reminder(ctx, *, args):
+async def reminder(ctx,*, args):
  user = ctx.author
- message = args.split("in")[:-1].join("in")
+ message = "in".join(args.split("in")[:-1])
  args = args.split(" in ")[-1]
  if "h" in args and "m" in args: 
     main = args.split( )
@@ -120,28 +120,28 @@ async def reminder(ctx, *, args):
         hour_in_seconds = x1*60*60
         minutes_in_seconds = x2*60
         total_time = hour_in_seconds + minutes_in_seconds
-        await ctx.send(f"{user.mention} You'll be reminded for {task} in {args}")
+        await ctx.send(f"{user.mention} You'll be reminded for {message} in {args}")
         await asyncio.sleep(total_time)
-        await user.send(task)
+        await user.send(message)
 
  elif "h" in args:
     hr = args[:-1]
     hr = int(hr)
     hr_in_seconds = hr*60*60
-    await ctx.send(f"{user.mention} You'll be reminded for {task} in {args}")
+    await ctx.send(f"{user.mention} You'll be reminded for {message} in {args}")
     await asyncio.sleep(hr_in_seconds)
-    await user.send(task)
+    await user.send(message)
 
  elif "m" in args:
     min = args[:-1]
     min = int(min)
     min_in_seconds = min*60
-    await ctx.send(f"{user.mention} You'll be reminded for {task} in {args}")
+    await ctx.send(f"{user.mention} You'll be reminded for {message} in {args}")
     await asyncio.sleep(min_in_seconds)
-    await user.send(task)
+    await user.send(message)
 
  else:
-    await ctx.send("Use Correct Format: Pls rem (Task) (0)h (0)m")
+    await ctx.send("Use Correct Format: Pls rem (message) in (0)h (0)m")
 
   
 @client.command()
