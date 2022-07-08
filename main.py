@@ -108,9 +108,6 @@ async def emoji(ctx, msgID):
     x = msg.content
     temp = re.findall(r'\d+', x)
     res = list(map(int, temp))
-    print(str(res))
-    print(msg.content)
-    print(f'https://cdn.discordapp.com/emojis/{res}')
     
     x = f'https://cdn.discordapp.com/emojis/{res}.gif'
     y1 = x.replace("[", "")
