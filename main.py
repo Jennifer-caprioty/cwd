@@ -101,6 +101,32 @@ async def on_message(message):
         
   await client.process_commands(message)
   
+@client.command(aliases=['emo', 'e'])
+async def emoji(ctx, msgID): 
+
+    msg = await ctx.fetch_message(msgID)
+    x = msg.content
+    temp = re.findall(r'\d+', x)
+    res = list(map(int, temp))
+    print(str(res))
+    print(msg.content)
+    print(f'https://cdn.discordapp.com/emojis/{res}')
+    
+    x = f'https://cdn.discordapp.com/emojis/{res}.gif'
+    y1 = x.replace("[", "")
+    y2 = y1.replace("]", "")
+    r = requests.head(f'{y2}')
+    rep = r.status_code
+    if rep != 200 :
+        normal = y2.replace(".gif", "")
+        emb = discord.Embed(title='Emoji')
+        emb.set_image(url = f'{normal}')
+        await ctx.send (embed = emb)
+    else:
+        emb = discord.Embed(title='Emoji')
+        emb.set_image(url = f'{y2}')
+        await ctx.send (embed = emb)
+  
 @client.command(aliases=['rem', 'r', 'remind'])
 async def reminder(ctx,*, args):
  user = ctx.author
