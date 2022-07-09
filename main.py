@@ -119,7 +119,7 @@ async def emoji(ctx, msgID):
         png = y2.replace(".gif", ".png")
         r2 = requests.head(f'{png}')
         rep2 = r2.status_code
-        if rep2 is 200:
+        if rep2 == 200:
 
             emb = discord.Embed(title='Emoji')
             emb.set_image(url = f'{png}')
