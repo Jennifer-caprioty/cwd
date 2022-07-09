@@ -114,15 +114,25 @@ async def emoji(ctx, msgID):
     y2 = y1.replace("]", "")
     r = requests.head(f'{y2}')
     rep = r.status_code
+
     if rep != 200 :
-        normal = y2.replace(".gif", "")
-        emb = discord.Embed(title='Emoji')
-        emb.set_image(url = f'{normal}')
-        await ctx.send (embed = emb)
+        png = y2.replace(".gif", ".png")
+        r2 = requests.head(f'{png}')
+        rep2 = r2.status_code
+        if rep2 is 200:
+
+            emb = discord.Embed(title='Emoji')
+            emb.set_image(url = f'{png}')
+            await ctx.send (embed = emb)
+        else: 
+            jpeg = png.replace(".png", "jpg")
+            emb = discord.Embed(title='Emoji')
+            emb.set_image(url = f'{jpeg}')
+            await ctx.send (embed = emb)  
     else:
-        emb = discord.Embed(title='Emoji')
-        emb.set_image(url = f'{y2}')
-        await ctx.send (embed = emb)
+         emb = discord.Embed(title='Emoji')
+         emb.set_image(url = f'{y2}')
+         await ctx.send (embed = emb)
   
 @client.command(aliases=['rem', 'r', 'remind'])
 async def reminder(ctx,*, args):
