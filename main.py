@@ -194,11 +194,11 @@ async def secttrade(ctx, time):
     print(time_in_sec)
 
     await ctx.send("Sect Trade feed has started")
-    await asyncio.sleep(time_in_minutes)
+    await asyncio.sleep(time_in_sec)
 
     try:
         while True:
-            await asyncio.sleep(10800) 
+            await asyncio.sleep(10) 
             await ctx.send (f"<@&939054218763972669> : Stocks will refresh in 5 mins. " )
     except KeyboardInterrupt:
         print('\n')
