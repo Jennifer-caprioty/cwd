@@ -13,6 +13,7 @@ import json
 import requests
 
 
+
 intents = discord.Intents.default()
 intents.members = True
 client=commands.Bot(command_prefix=['pls ', 'Pls ', 'p', 'P', 'p ', 'P ', 'Pls'], intents = intents)
@@ -184,19 +185,24 @@ async def avatar(ctx, *, member: discord.Member=None): # set the member object t
     userAvatar = member.avatar_url
     await ctx.send(userAvatar)
     
-@client.command(aliases=['st'])
+        
+@client.command(aliases=['st'])    
+@commands.has_any_role('Vice Leader', 'Elder', 'Emperor Lord', 'Tao Lord')
 async def secttrade(ctx, time):
-    time_in_minutes = int(time * 60)
+    time_in_minutes = int(time)
+    time_in_sec = time_in_minutes*60
+    print(time_in_sec)
 
     await ctx.send("Sect Trade feed has started")
     await asyncio.sleep(time_in_minutes)
 
     try:
         while True:
-            await asyncio.sleep(10) 
+            await asyncio.sleep(10800) 
             await ctx.send (f"<@&939054218763972669> : Stocks will refresh in 5 mins. " )
     except KeyboardInterrupt:
         print('\n')
+
 
 @client.command(aliases=['Dm', 'DM'])
 @commands.has_any_role('Vice Leader', 'Elder', 'Emperor Lord', 'Tao Lord')
