@@ -185,7 +185,6 @@ async def avatar(ctx, *, member: discord.Member=None): # set the member object t
     await ctx.send(userAvatar)
     
 @client.command(aliases=['st'])
-@commands.has_any_role('Vice Leader', 'Elder', 'Emperor Lord', 'Tao Lord')
 async def secttrade(ctx, time):
     time_in_minutes = int(time * 60)
 
@@ -194,7 +193,7 @@ async def secttrade(ctx, time):
 
     try:
         while True:
-            await asyncio.sleep(10500) 
+            await asyncio.sleep(10) 
             await ctx.send (f"<@&939054218763972669> : Stocks will refresh in 5 mins. " )
     except KeyboardInterrupt:
         print('\n')
