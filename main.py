@@ -145,6 +145,8 @@ async def steal(ctx,*, member: discord.Member):
     choose = random.choice(lists)
     if member is ctx.author :
         await ctx.send("No need to steal your own luck noob")
+    elif ctx.author is 705116051024773213 :
+        await ctx.send(f"Can't steal Creator's Luck")
     else:
       await ctx.send(choose)
   
