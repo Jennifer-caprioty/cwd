@@ -134,6 +134,19 @@ async def emoji(ctx, msgID):
          emb = discord.Embed(title='Emoji')
          emb.set_image(url = f'{y2}')
          await ctx.send (embed = emb)
+
+@client.command()
+async def steal(ctx,*, member: discord.Member):
+    list1 = f"{ctx.author.mention} tried to steal {member.mention}'s luck but failed"
+    list2 = f"{ctx.author.mention} stole {member.mention}'s Good luck"
+    list22 = f"{ctx.author.mention} stole {member.mention}'s Bad luck"
+    list3 = f"{ctx.author.mention} stole {member.mention}'s luck, Not sure Good or Bad"
+    lists = [list1, list2, list3, list22]
+    choose = random.choice(lists)
+    if member is ctx.author :
+        await ctx.send("No need to steal your own luck noob")
+    else:
+      await ctx.send(choose)
   
 @client.command(aliases=['rem', 'r', 'remind'])
 async def reminder(ctx,*, args):
