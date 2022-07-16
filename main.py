@@ -110,7 +110,7 @@ async def token(ctx, member: discord.Member):
     pick = random.choice(servant)
     tokens = random.choice(list)
     print(pick, tokens)
-    if member is ctx.author
+    if member is he:
         await ctx.send(f"Can't token yourself Pleb")
 
     else:
