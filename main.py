@@ -110,8 +110,8 @@ async def token(ctx, member: discord.Member):
     pick = random.choice(servant)
     tokens = random.choice(list)
     print(pick, tokens)
-    if member is (705116051024773213):
-        await ctx.send(f"{user.mention} defeated 0 servants of {member}")
+    if member is ctx.author
+        await ctx.send(f"Can't token yourself Pleb")
 
     else:
         await ctx.send (f"{user.mention} {tokens} {member.mention} and defeated {pick} servants")
