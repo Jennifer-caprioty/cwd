@@ -110,7 +110,13 @@ async def token(ctx, member: discord.Member):
     pick = random.choice(servant)
     tokens = random.choice(list)
     print(pick, tokens)
-    await ctx.send (f"{user.mention} {tokens} {member.mention} and defeated {pick} servants")
+    if member is (705116051024773213):
+        await ctx.send(f"{user.mention} defeated 0 servants of {member}")
+
+    else:
+        await ctx.send (f"{user.mention} {tokens} {member.mention} and defeated {pick} servants")
+
+
   
 @client.command(aliases=['emo', 'e'])
 async def emoji(ctx, msgID): 
