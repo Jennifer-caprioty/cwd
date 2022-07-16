@@ -102,6 +102,16 @@ async def on_message(message):
         
   await client.process_commands(message)
   
+@client.command()
+async def token(ctx, member: discord.Member):
+    list = ["Blued", "Yellowed"]
+    user = ctx.author
+    servant = range(1, 60)
+    pick = random.choice(servant)
+    tokens = random.choice(list)
+    print(pick, tokens)
+    await ctx.send (f"{user.mention} {tokens} {member.mention} and defeated {pick} servants")
+  
 @client.command(aliases=['emo', 'e'])
 async def emoji(ctx, msgID): 
 
