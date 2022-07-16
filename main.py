@@ -455,11 +455,18 @@ async def reroll(ctx, channel: discord.TextChannel, id_ : int):
     reroll_announcement.add_field(name = f'🥳 New Winner:', value = f'{winner.mention}', inline = False)
     await channel.send(embed = reroll_announcement)
     
-@client.command(aliases=['choose', 'Choose', 'Pick'])
-async def pick(ctx, *args):
+@client.command(aliases=['choose'])
+async def Choose(ctx, *args):
   winner = random.choice(args)
   winlistx = random.choice(winlist)
   await ctx.send((f'{winlistx} ' '{}  '.format(winner)))
+  
+@client.command(aliases=['Pick'])
+async def pick(ctx, num, *, args):
+    list = args.split()
+    num = int(num)
+    picking = random.sample(list, num)
+    await ctx.send(picking)
   
 @client.command()
 @commands.has_any_role('Vice Leader')
