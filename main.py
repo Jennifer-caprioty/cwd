@@ -461,12 +461,13 @@ async def Choose(ctx, *args):
   winlistx = random.choice(winlist)
   await ctx.send((f'{winlistx} ' '{}  '.format(winner)))
   
-@client.command(aliases=['Pick'])
+@client.command(aliases=['Pick')
 async def pick(ctx, num, *, args):
     list = args.split()
     num = int(num)
     picking = random.sample(list, num)
-    await ctx.send(picking)
+    listToStr = ' '.join(map(str, picking))
+    await ctx.send(listToStr)
   
 @client.command()
 @commands.has_any_role('Vice Leader')
