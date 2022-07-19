@@ -123,6 +123,7 @@ async def on_message(message):
     for embed in embeds:
         list1 = embed.to_dict()
         x = (list1['description'])
+        print(x)
         if "Pig Latin" in x:
             await message.delete()
 
