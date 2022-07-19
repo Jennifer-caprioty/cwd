@@ -117,13 +117,6 @@ async def token(ctx, member: discord.Member):
     else:
         await ctx.send (f"{user.mention} {tokens} {member.mention} and defeated {pick} servants")
 
-@client.event
-async def on_message(message):
-    embeds = message.embeds
-    for embed in embeds:
-        list1 = embed.to_dict()
-        if "Pig Latin" in list1:
-            await message.delete()
 
   
 @client.command(aliases=['emo', 'e'])
