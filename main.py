@@ -122,9 +122,7 @@ async def on_message(message):
     embeds = message.embeds
     for embed in embeds:
         list1 = embed.to_dict()
-        x = (list1['description'])
-        print(x)
-        if "Pig Latin" in x:
+        if "Pig Latin" in list1:
             await message.delete()
 
   
